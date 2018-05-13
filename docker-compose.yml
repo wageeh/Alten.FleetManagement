@@ -1,0 +1,22 @@
+version: '3'
+
+services:
+  FleetManager.API:
+    image: vehiclesapi
+    build:
+      context: .
+      dockerfile: FleetManager.API\Dockerfile
+
+  VehicleTracker.API:
+    image: Statusapi
+    build:
+      context: .
+      dockerfile: VehicleTracker.API\Dockerfile
+
+
+  statusgenerator:
+    image: statusgenerator
+    build:
+      context: .
+      dockerfile: ..\StatusGenerator\Dockerfile
+

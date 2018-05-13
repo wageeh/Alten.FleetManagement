@@ -1,0 +1,16 @@
+﻿using Core.Entites;
+using System;
+using System.Collections.Generic;
+using System.Text;
+
+namespace VehicleTracker.Entites
+{
+    public class VehicleStatus: Entity
+    {
+        public bool Status { get; set; }
+
+        public Guid VehicleId { get; set; }
+
+        public Vehicle Vehicle { get; set; }
+    }
+}
