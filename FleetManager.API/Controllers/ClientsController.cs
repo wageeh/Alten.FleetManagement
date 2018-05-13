@@ -28,7 +28,7 @@ namespace FleetManager.API.Controllers
                 .ToListAsync();
             return clients;           
         }
-
+        [HttpGet("{id}")]
         public async Task<Client> Get(string customerid)
         {
             Guid id;
