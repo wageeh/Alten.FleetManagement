@@ -17,7 +17,7 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "VehicleTracker", "VehicleTr
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Core", "Core", "{DA77CCAC-AC95-40AF-B758-24768A466295}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "FleetManager.Entites", "FleetManager.Entites\FleetManager.Entites.csproj", "{5EA3AB38-0439-4617-8DC2-B2AD54DFEB90}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "FleetManager.DTO", "FleetManager.Entites\FleetManager.DTO.csproj", "{5EA3AB38-0439-4617-8DC2-B2AD54DFEB90}"
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Core.DbEntites", "Core.Entites\Core.DbEntites.csproj", "{AEA43603-C229-4D01-BE5B-E78AA0092BA6}"
 EndProject
@@ -25,7 +25,7 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "FleetManager.API", "FleetMa
 EndProject
 Project("{E53339B2-1760-4266-BCC7-CA923CBCF16C}") = "docker-compose", "docker-compose.dcproj", "{DCF8330B-36A2-4CC2-96C1-E1CCE3A74945}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "VehicleTracker.Entites", "VehicleTracker.Entites\VehicleTracker.Entites.csproj", "{DAC71697-1B79-4618-8A91-97223D1A863A}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "VehicleTracker.DTO", "VehicleTracker.Entites\VehicleTracker.DTO.csproj", "{DAC71697-1B79-4618-8A91-97223D1A863A}"
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "VehicleTracker.API", "VehicleTracker.API\VehicleTracker.API.csproj", "{983A5142-6CDE-4EE9-A3D8-6A132F2CE1AF}"
 EndProject
@@ -33,7 +33,9 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "VehicleBot", "VehicleBot", 
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "StatusGenerator", "StatusGenerator\StatusGenerator.csproj", "{9F6267B6-42B4-4743-A84E-CB66C8901208}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Apps.SPA", "Apps.SPA\Apps.SPA.csproj", "{97F699FA-F42D-4854-94CC-AE0CED9580EB}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Apps.SPA", "Apps.SPA\Apps.SPA.csproj", "{97F699FA-F42D-4854-94CC-AE0CED9580EB}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "VehicleTracker.BusinessModel", "..\VehicleTracker.BusinessModel\VehicleTracker.BusinessModel.csproj", "{88396465-5DC2-46D4-89AE-E2045651187C}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -73,6 +75,10 @@ Global
 		{97F699FA-F42D-4854-94CC-AE0CED9580EB}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{97F699FA-F42D-4854-94CC-AE0CED9580EB}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{97F699FA-F42D-4854-94CC-AE0CED9580EB}.Release|Any CPU.Build.0 = Release|Any CPU
+		{88396465-5DC2-46D4-89AE-E2045651187C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{88396465-5DC2-46D4-89AE-E2045651187C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{88396465-5DC2-46D4-89AE-E2045651187C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{88396465-5DC2-46D4-89AE-E2045651187C}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -89,6 +95,7 @@ Global
 		{9F569E78-072F-48A0-8F35-816DBA485061} = {34EB9304-4CD6-472D-92F0-0917979F89E5}
 		{9F6267B6-42B4-4743-A84E-CB66C8901208} = {9F569E78-072F-48A0-8F35-816DBA485061}
 		{97F699FA-F42D-4854-94CC-AE0CED9580EB} = {F6025F4F-E19D-4B93-8C29-B8927E0CAA2D}
+		{88396465-5DC2-46D4-89AE-E2045651187C} = {023173B4-29F8-4C2D-968E-8A772F516ABB}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {7F8664F0-938A-4DEC-B64A-C9AA7F739390}

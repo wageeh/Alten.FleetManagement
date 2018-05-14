@@ -3,7 +3,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
-using FleetManager.Entities;
+using FleetManager.DTO;
 
 namespace FleetManager.API.Repository
 {

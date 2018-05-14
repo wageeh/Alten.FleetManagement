@@ -1,5 +1,5 @@
 ﻿using Microsoft.EntityFrameworkCore;
-using VehicleTracker.Entites;
+using VehicleTracker.DTO;
 using System;
 using System.Collections.Generic;
 using System.Linq;

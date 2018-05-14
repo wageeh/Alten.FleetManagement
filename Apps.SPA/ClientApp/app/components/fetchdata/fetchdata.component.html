@@ -2,6 +2,18 @@
 
 <p>This component demonstrates fetching data from the server.</p>
 
+<table>
+    <tr>
+        <td>
+            <label for="clients"> Clients: </label>
+            <select name="clientsddl" id="clientsddl" ng-model="data.model" (change)="filter($event.target.value)">
+                <option *ngFor="let client of clients" [value]="client.name">{{client.name}}</option>
+            </select>
+        </td>
+    <td></td>
+    </tr>
+</table>
+
 <p *ngIf="!checks"><em>Loading...</em></p>
 
 <table class='table' *ngIf="checks">
@@ -9,14 +21,16 @@
         <tr>
             <th>Last Check Date</th>
             <th>Status</th>
-            <!--<th>Vehicle Reg. No.</th>-->
+            <th>Vehicle Reg. No.</th>
+            <th>Offline</th>
         </tr>
     </thead>
     <tbody>
         <tr *ngFor="let check of checks">
-            <td>{{ check.dateFormatted }}</td>
+            <td>{{ check.createdDate }}</td>
             <td>{{ check.status }}</td>
-            <!--<td>{{ check.registrationNumber }}</td>-->
+            <td>{{ check.registrationNumber }}</td>
+            <td>{{ check.statusOld }}</td>
         </tr>
     </tbody>
 </table>

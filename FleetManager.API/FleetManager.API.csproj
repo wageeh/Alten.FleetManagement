@@ -21,7 +21,7 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\FleetManager.Entites\FleetManager.Entites.csproj" />
+    <ProjectReference Include="..\FleetManager.Entites\FleetManager.DTO.csproj" />
   </ItemGroup>
 
 </Project>

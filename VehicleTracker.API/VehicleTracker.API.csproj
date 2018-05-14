@@ -21,8 +21,9 @@
   </ItemGroup>
 
   <ItemGroup>
+    <ProjectReference Include="..\..\VehicleTracker.BusinessModel\VehicleTracker.BusinessModel.csproj" />
     <ProjectReference Include="..\Core.Entites\Core.DbEntites.csproj" />
-    <ProjectReference Include="..\VehicleTracker.Entites\VehicleTracker.Entites.csproj" />
+    <ProjectReference Include="..\VehicleTracker.Entites\VehicleTracker.DTO.csproj" />
   </ItemGroup>
 
 </Project>

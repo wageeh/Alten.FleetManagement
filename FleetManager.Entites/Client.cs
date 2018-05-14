@@ -3,7 +3,7 @@ using System;
 using System.Collections.Generic;
 using System.Text;
 
-namespace FleetManager.Entities
+namespace FleetManager.DTO
 {
     public class Client:Entity
     {

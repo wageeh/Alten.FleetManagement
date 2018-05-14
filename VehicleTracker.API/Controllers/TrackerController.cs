@@ -1,13 +1,12 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Linq;
+
 using System.Threading.Tasks;
-using Core.DbEntites;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
-using Microsoft.EntityFrameworkCore;
+using VehicleTracker.API.BL;
 using VehicleTracker.API.Repository;
-using VehicleTracker.Entites;
+using VehicleTracker.BusinessModel;
 
 namespace VehicleTracker.API.Controllers
 {
@@ -16,29 +15,17 @@ namespace VehicleTracker.API.Controllers
     public class TrackerController : Controller
     {
         private readonly StatusContext _context;
+        private StatusManager _manager;
 
         public TrackerController(StatusContext context)
         {
             _context = context;
+            _manager = new StatusManager();
         }
 
-        public async Task<IEnumerable<VehicleStatus>> Get(List<string> vehiclelist, bool? vehiclestatus)
+        public async Task<IEnumerable<StatusHistory>> Get([FromBody]List<string> vehiclelist, bool? vehiclestatus)
         {
-            var predicate = PredicateBuilder.True<VehicleStatus>();
-            if (vehiclelist.Count>0)
-            {
-                predicate = predicate.And(l => vehiclelist.Contains(l.Vehicle.RegistrationNumber));
-            }
-            if (vehiclestatus.HasValue)
-            {
-                predicate = predicate.And(l => l.Status == vehiclestatus.Value);
-            }
-            var vehicleStatus = await _context.VehicleStatus
-                .Include(u => u.Vehicle)
-                .Where(predicate)
-                .OrderByDescending(s => s.CreatedDate)
-                .ToListAsync();
-            return vehicleStatus;
+            return await _manager.GetLatestStatusHistory(vehiclelist, vehiclestatus, _context);
         }
 
 

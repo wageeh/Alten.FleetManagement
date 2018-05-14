@@ -6,7 +6,7 @@ using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using VehicleTracker.API.BL;
 using VehicleTracker.API.Repository;
-using VehicleTracker.Entites;
+using VehicleTracker.DTO;
 
 namespace VehicleTracker.API.Controllers
 {

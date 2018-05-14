@@ -4,7 +4,7 @@ using System.Linq;
 using System.Linq.Expressions;
 using System.Text;
 
-namespace Core.DbEntites
+namespace Core.DbEntites.Helpers
 {
     public static class PredicateBuilder
     {

@@ -4,7 +4,7 @@ using System;
 using System.Collections.Generic;
 using System.Text;
 
-namespace VehicleTracker.Entites
+namespace VehicleTracker.DTO
 {
     // this is the same object as in Vehcile Entities, but redunadantly added her to follow microservice pattern
     public class Vehicle:Entity

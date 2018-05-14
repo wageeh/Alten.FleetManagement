@@ -6,7 +6,7 @@ using System.Net.Http;
 using System.Net.Http.Headers;
 using System.Threading.Tasks;
 using VehicleTracker.API.Repository;
-using VehicleTracker.Entites;
+using VehicleTracker.DTO;
 
 namespace VehicleTracker.API.BL
 {

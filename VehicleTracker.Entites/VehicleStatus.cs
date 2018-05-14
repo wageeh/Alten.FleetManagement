@@ -3,7 +3,7 @@ using System;
 using System.Collections.Generic;
 using System.Text;
 
-namespace VehicleTracker.Entites
+namespace VehicleTracker.DTO
 {
     public class VehicleStatus: Entity
     {
