@@ -22,10 +22,15 @@ namespace VehicleTracker.API.Controllers
             _context = context;
             _manager = new StatusManager();
         }
-
-        public async Task<IEnumerable<StatusHistory>> Get([FromBody]List<string> vehiclelist, bool? vehiclestatus)
+        [HttpGet]
+        public async Task<IEnumerable<StatusHistory>> Get()
         {
-            return await _manager.GetLatestStatusHistory(vehiclelist, vehiclestatus, _context);
+            return await _manager.GetLatestStatusHistory("", null, _context);
+        }
+        [HttpGet("{list}/{status}")]
+        public async Task<IEnumerable<StatusHistory>> Get(string list, bool? status)
+        {
+            return await _manager.GetLatestStatusHistory(list, status, _context);
         }
 
 

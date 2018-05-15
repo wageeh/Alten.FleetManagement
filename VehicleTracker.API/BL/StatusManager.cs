@@ -13,10 +13,10 @@ namespace VehicleTracker.API.BL
     public class StatusManager
     {
 
-        public async Task<IEnumerable<StatusHistory>> GetLatestStatusHistory(List<string> vehiclelist, bool? vehiclestatus, StatusContext context)
+        public async Task<IEnumerable<StatusHistory>> GetLatestStatusHistory(string vehiclelist, bool? vehiclestatus, StatusContext context)
         {
             var predicate = PredicateBuilder.True<VehicleStatus>();
-            if (vehiclelist.Count > 0)
+            if (vehiclelist!= null && !vehiclelist.Equals(""))
             {
                 predicate = predicate.And(l => vehiclelist.Contains(l.Vehicle.RegistrationNumber));
             }

@@ -12,53 +12,67 @@ export class FetchDataComponent {
     // init 
     public checks: FleetManagment[];
     public clients: BusinessClient[];
-    //public _http: Http;
+    public _http: Http;
+    public fleeturl: string = "http://localhost:56291/api/clients";
+    public vehicleurl: string = "http://localhost:59024/api/tracker";
+    public selstatus: boolean | null;
+    public selvehicles: string = "";
 
 
     constructor(http: Http) {
-        //this._http = http;
+        this._http = http;
         // for listing client list
-        http.get('http://localhost:56291/api/clients').subscribe(result => {
+        http.get(this.fleeturl).subscribe(result => {
             this.clients = result.json() as BusinessClient[];
         }, error => console.error(error));
 
         // for getting Fleet latest saved status
-        http.get('http://localhost:59024/api/tracker').subscribe(result => {
+        http.get(this.vehicleurl).subscribe(result => {
             this.checks = result.json() as FleetManagment[];           
         }, error => console.error(error));
     }
 
-    public filter(selval: any) {
+    public filterbystatus(selval: any) {
+        this.selstatus = selval;
+        this._http.get(this.vehicleurl + "/" + this.selvehicles + "/" + this.selstatus).subscribe(result => {
+            this.checks = result.json() as FleetManagment[];
+        }, error => console.error(error));
+    }
+
+    public filterbyclient(selval: any) {
         //var clientId = client.Id;
         var curUser = this.clients.filter(value => value.name === selval)[0];
+        this.selvehicles = "";
+        if (curUser) {
+            for (var vehicle of curUser.vehicles) {
+                this.selvehicles += vehicle.registrationNumber;
+                this.selvehicles += ",";
+            }
+           
+        }
         
-
-        let requestOptions = new RequestOptions();
-        requestOptions.body = curUser.vehicles;
         debugger;
 
-        //http.get('http://localhost:59024/api/tracker', requestOptions).subscribe(result => {
-        //    this.checks = result.json() as FleetManagment[];
-        //}, error => console.error(error));
+        this._http.get(this.vehicleurl + "/" + this.selvehicles + "/" + this.selstatus).subscribe(result => {
+            this.checks = result.json() as FleetManagment[];
+        }, error => console.error(error));
     }
 }
 
-interface FleetManagment {
+class FleetManagment {
     createdDate: string;
     status: boolean;
     registrationNumber: string;
     StatusOld: boolean;
 }
 
-interface BusinessClient {
+class BusinessClient {
     name: string;
     Id: string;
-    vehicles: {
-        [key: string]: Vehicle;
-    };
+    vehicles: Array<Vehicle>;
 }
 
-interface Vehicle {
+class Vehicle {
     Id: string;
     vin: string;
     registrationNumber: string;

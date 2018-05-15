@@ -2,15 +2,23 @@
 
 <p>This component demonstrates fetching data from the server.</p>
 
-<table>
+<table width="80%">
     <tr>
         <td>
             <label for="clients"> Clients: </label>
-            <select name="clientsddl" id="clientsddl" ng-model="data.model" (change)="filter($event.target.value)">
+            <select name="clientsddl" id="clientsddl" ng-model="data.model" (change)="filterbyclient($event.target.value)">
+                <option selected="selected" [value]="">All</option>
                 <option *ngFor="let client of clients" [value]="client.name">{{client.name}}</option>
             </select>
         </td>
-    <td></td>
+        <td>
+            <label for="vstatus"> Vehicle Status: </label>
+            <select name="vstatusddl" id="vstatusddl" ng-model="data.model" (change)="filterbystatus($event.target.value)">
+                <option selected="selected" [value]="null">All</option>
+                <option [value]="true">Online</option>
+                <option [value]="false">Offline</option>
+            </select>
+        </td>
     </tr>
 </table>
 
@@ -22,7 +30,7 @@
             <th>Last Check Date</th>
             <th>Status</th>
             <th>Vehicle Reg. No.</th>
-            <th>Offline</th>
+            <th>Is it old status</th>
         </tr>
     </thead>
     <tbody>
