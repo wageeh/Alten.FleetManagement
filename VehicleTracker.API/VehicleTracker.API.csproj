@@ -21,9 +21,11 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\..\VehicleTracker.BusinessModel\VehicleTracker.BusinessModel.csproj" />
-    <ProjectReference Include="..\Core.Entites\Core.DbEntites.csproj" />
+    <ProjectReference Include="..\Core.Entites\Core.BaseEntities.csproj" />
+    <ProjectReference Include="..\Core.SQLRepository\Core.SQLRepository.csproj" />
+    <ProjectReference Include="..\VehicleTracker.BusinessModel\VehicleTracker.BusinessModel.csproj" />
     <ProjectReference Include="..\VehicleTracker.Entites\VehicleTracker.DTO.csproj" />
+    <ProjectReference Include="..\VehicleTracker.Repository\VehicleTracker.Repository.csproj" />
   </ItemGroup>
 
 </Project>

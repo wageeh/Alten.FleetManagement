@@ -7,13 +7,13 @@ namespace Core.Entites
     /// <summary>
     /// for creating system entites, the basic propertes and it's init for objects
     /// </summary>
-    public abstract class Entity
+    public abstract class BaseEntity
     {
         public Guid Id { get; set; }
 
         public DateTime CreatedDate { get; set; }
 
-        public Entity()
+        public BaseEntity()
         {
             Id = new Guid();
             CreatedDate = DateTime.Now;

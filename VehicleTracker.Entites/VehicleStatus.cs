@@ -5,7 +5,7 @@ using System.Text;
 
 namespace VehicleTracker.DTO
 {
-    public class VehicleStatus: Entity
+    public class VehicleStatus: BaseEntity
     {
         public bool Status { get; set; }
 

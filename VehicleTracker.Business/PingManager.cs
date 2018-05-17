@@ -1,34 +1,35 @@
-﻿using Core.BaseRepository;
-using Microsoft.EntityFrameworkCore;
+﻿using Microsoft.EntityFrameworkCore;
 using System;
 using System.Collections.Generic;
+using System.Linq;
 using System.Net.Http;
 using System.Net.Http.Headers;
 using System.Threading.Tasks;
+using VehicleTracker.API.Repository;
 using VehicleTracker.DTO;
 
-namespace VehicleTracker.API.BL
+namespace VehicleTracker.Business
 {
     public class PingManager
     {
-        private readonly IBaseRepository<Vehicle> _vehiclerepository;
-
+        private StatusContext _statusContext;
         private static HttpClient client = new HttpClient();
         private string baseaddress = "";
-        public PingManager(IBaseRepository<Vehicle> vehiclerepository, string clientbaseurl)
+        public PingManager(StatusContext statuscontext,string clientbaseurl)
         {
-            _vehiclerepository = vehiclerepository;
+            _statusContext = statuscontext;
             baseaddress = clientbaseurl;
             client.DefaultRequestHeaders.Accept.Clear();
             client.DefaultRequestHeaders.Accept.Add(
                 new MediaTypeWithQualityHeaderValue("application/json"));
 
         }
-
-        public async Task<List<VehicleStatus>> GetVehicleStatusesAsync(List<Vehicle> vehicles)
+        public async Task<List<VehicleStatus>> UpdateVehicleStatusesAsync()
         {
             var vehiclestatuslist = new List<VehicleStatus>();
-            foreach (var vehicle in vehicles)
+            var vehiclelist = await _statusContext.Vehicles
+              .ToListAsync();
+            foreach (var vehicle in vehiclelist)
             {
                 var response = await client.GetAsync(baseaddress + "api/values/" + vehicle.RegistrationNumber);
                 string result = await response.Content.ReadAsStringAsync();
@@ -43,9 +44,9 @@ namespace VehicleTracker.API.BL
                 }
 
             }
-            
+            await _statusContext.VehicleStatus.AddRangeAsync(vehiclestatuslist);
+            await _statusContext.SaveChangesAsync();
             return vehiclestatuslist;
         }
-
     }
 }

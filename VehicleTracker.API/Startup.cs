@@ -1,16 +1,9 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
-using Core.DbEntites.Helpers;
+﻿
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
-using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
-using Microsoft.Extensions.Logging;
-using Microsoft.Extensions.Options;
-using VehicleTracker.API.Repository;
+using VehicleTracker.Repository;
 
 namespace VehicleTracker.API
 {
@@ -28,10 +21,10 @@ namespace VehicleTracker.API
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
-            // for init db context 
-            services.AddDbContext<StatusContext>(opt => opt.UseSqlServer(Helper.connection));
-            services.AddMvc().AddJsonOptions(options => options.SerializerSettings.ReferenceLoopHandling = Newtonsoft.Json.ReferenceLoopHandling.Ignore);
             
+            services.AddMvc().AddJsonOptions(options => options.SerializerSettings.ReferenceLoopHandling = Newtonsoft.Json.ReferenceLoopHandling.Ignore);
+            Installer.ConfigureServices(services);
+            //services.AddScoped<>
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.

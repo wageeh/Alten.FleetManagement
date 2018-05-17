@@ -1,15 +1,12 @@
 ﻿using Microsoft.EntityFrameworkCore.Migrations;
 using System;
-using System.Collections.Generic;
 
-namespace VehicleTracker.API.Migrations
+namespace VehicleTracker.Repository.Migrations
 {
     public partial class InitialStatusAddition : Migration
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {
-            
-
             migrationBuilder.CreateTable(
                 name: "VehicleStatus",
                 columns: table => new

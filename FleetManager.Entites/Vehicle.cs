@@ -5,7 +5,7 @@ using System.Text;
 
 namespace FleetManager.DTO
 {
-    public class Vehicle:Entity
+    public class Vehicle:BaseEntity
     {
         public string VIN { get; set; }
 

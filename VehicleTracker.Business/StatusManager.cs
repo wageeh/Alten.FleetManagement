@@ -1,25 +1,19 @@
-﻿using Core.BaseRepository;
-using Core.DbEntites.Helpers;
+﻿using Core.DbEntites.Helpers;
 using Microsoft.EntityFrameworkCore;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using VehicleTracker.API.Repository;
 using VehicleTracker.BusinessModel;
 using VehicleTracker.DTO;
 
-namespace VehicleTracker.API.BL
+namespace VehicleTracker.Business
 {
     public class StatusManager
     {
-        private readonly IBaseRepository<VehicleStatus> _repository;
 
-        public StatusManager(IBaseRepository<VehicleStatus> repository)
-        {
-            _repository = repository;
-        }
-
-        public async Task<IEnumerable<StatusHistory>> GetLatestStatusHistory(string vehiclelist, bool? vehiclestatus)
+        public async Task<IEnumerable<StatusHistory>> GetLatestStatusHistory(string vehiclelist, bool? vehiclestatus, StatusContext context)
         {
             var predicate = PredicateBuilder.True<VehicleStatus>();
             if (vehiclelist!= null && !vehiclelist.Equals(""))
@@ -30,10 +24,11 @@ namespace VehicleTracker.API.BL
             {
                 predicate = predicate.And(l => l.Status == vehiclestatus.Value);
             }
-
-
-            var vehicleStatus = await _repository
-                .WhereOrdered(predicate, item => item.CreatedDate);
+            var vehicleStatus = await context.VehicleStatus
+                .Include(u => u.Vehicle)
+                .Where(predicate)
+                .OrderByDescending(s => s.CreatedDate)           
+                .ToListAsync();
 
             List<StatusHistory> lsthistory = (from vs in vehicleStatus
                                              select new StatusHistory()
@@ -45,11 +40,6 @@ namespace VehicleTracker.API.BL
 
 
             return lsthistory;
-        }
-
-        public void InsertRange(List<VehicleStatus>vehiclestatuslist)
-        {
-            _repository.InsertRange(vehiclestatuslist);
         }
     }
 }

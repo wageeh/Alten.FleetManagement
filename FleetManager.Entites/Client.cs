@@ -5,7 +5,7 @@ using System.Text;
 
 namespace FleetManager.DTO
 {
-    public class Client:Entity
+    public class Client:BaseEntity
     {
         public string Name { get; set; }
         public string Adress { get; set; }

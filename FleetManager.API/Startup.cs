@@ -1,12 +1,11 @@
-﻿
-using Microsoft.AspNetCore.Builder;
+﻿using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using FleetManager.DTO;
 using FleetManager.API.Repository;
-using Core.DbEntites.Helpers;
+using Core.SQLRepository;
 
 namespace FleetManager.API
 {
@@ -23,7 +22,7 @@ namespace FleetManager.API
         public void ConfigureServices(IServiceCollection services)
         {
             // for using InMemory Database for speed development 
-            services.AddDbContext<FleetManagerContext>(opt => opt.UseSqlServer(Helper.connection));
+            services.AddDbContext<FleetManagerContext>(opt => opt.UseSqlServer(SQLHelper.connection));
             services.AddMvc().AddJsonOptions(options => options.SerializerSettings.ReferenceLoopHandling = Newtonsoft.Json.ReferenceLoopHandling.Ignore); 
         }
 
