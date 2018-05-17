@@ -13,7 +13,6 @@
   <ItemGroup>
     <ProjectReference Include="..\Core.ErrorHandler\Core.ErrorHandler.csproj" />
     <ProjectReference Include="..\Core.IContext\Core.BaseRepository.csproj" />
-    <ProjectReference Include="..\Core.SQLRepository\Core.SQLRepository.csproj" />
     <ProjectReference Include="..\VehicleTracker.Entites\VehicleTracker.DTO.csproj" />
   </ItemGroup>
 

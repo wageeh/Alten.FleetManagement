@@ -12,7 +12,9 @@ namespace Core.BaseRepository
         Task<List<T>> GetAll();
         Task<T> GetById(Guid Id);
         Task<IEnumerable<T>> Where(Expression<Func<T, bool>> exp);
-        Task<IEnumerable<T>> WhereOrdered(Expression<Func<T, bool>> exp, Expression<Func<T, object>> keyselector);
+        Task<IEnumerable<T>> WhereOrdered(Expression<Func<T, bool>> exp, 
+            Expression<Func<T, object>> keyselector, 
+            Expression<Func<T, object>> includedentity);
         void Insert(T entity);
         void InsertRange(List<T> entities);
         void Update(T entity);

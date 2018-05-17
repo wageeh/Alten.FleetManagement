@@ -6,9 +6,9 @@ using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage;
 using Microsoft.EntityFrameworkCore.Storage.Internal;
 using System;
-using FleetManager.API.Repository;
+using FleetManager.Repository;
 
-namespace FleetManager.API.Migrations
+namespace FleetManager.Repository.Migrations
 {
     [DbContext(typeof(FleetManagerContext))]
     [Migration("20180511152821_InitialCreate")]

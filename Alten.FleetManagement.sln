@@ -41,6 +41,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Core.SQLRepository", "Core.
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Core.ErrorHandler", "Core.ErrorHandler\Core.ErrorHandler.csproj", "{109A10F4-2BC8-4978-A8FC-B588E27A82EC}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FleetManager.Repository", "FleetManager.Repository\FleetManager.Repository.csproj", "{5A70D1BA-3215-4B64-9D06-2E853E12E2D2}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -99,6 +101,10 @@ Global
 		{109A10F4-2BC8-4978-A8FC-B588E27A82EC}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{109A10F4-2BC8-4978-A8FC-B588E27A82EC}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{109A10F4-2BC8-4978-A8FC-B588E27A82EC}.Release|Any CPU.Build.0 = Release|Any CPU
+		{5A70D1BA-3215-4B64-9D06-2E853E12E2D2}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{5A70D1BA-3215-4B64-9D06-2E853E12E2D2}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{5A70D1BA-3215-4B64-9D06-2E853E12E2D2}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{5A70D1BA-3215-4B64-9D06-2E853E12E2D2}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -119,6 +125,7 @@ Global
 		{022126B5-849E-42DC-B7AE-19EC1C26E147} = {DA77CCAC-AC95-40AF-B758-24768A466295}
 		{5E46D825-286A-43BC-8FD6-889EC44E615B} = {DA77CCAC-AC95-40AF-B758-24768A466295}
 		{109A10F4-2BC8-4978-A8FC-B588E27A82EC} = {DA77CCAC-AC95-40AF-B758-24768A466295}
+		{5A70D1BA-3215-4B64-9D06-2E853E12E2D2} = {1057B4AB-98CB-4C93-A449-455544FC6994}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {7F8664F0-938A-4DEC-B64A-C9AA7F739390}

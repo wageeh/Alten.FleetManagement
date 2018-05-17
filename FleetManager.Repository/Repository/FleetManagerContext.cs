@@ -5,7 +5,7 @@ using System.Linq;
 using System.Threading.Tasks;
 using FleetManager.DTO;
 
-namespace FleetManager.API.Repository
+namespace FleetManager.Repository
 {
     public class FleetManagerContext : DbContext
     {

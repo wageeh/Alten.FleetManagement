@@ -2,11 +2,10 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
-using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using FleetManager.DTO;
-using FleetManager.API.Repository;
+using FleetManager.Repository;
 
 namespace FleetManager.API.Controllers
 {

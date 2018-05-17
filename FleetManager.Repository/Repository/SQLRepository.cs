@@ -9,20 +9,20 @@ using System.Linq.Expressions;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Core.SQLRepository
+namespace FleetManager.Repository
 {
     public class SQLRepository<T> : IBaseRepository<T> where T : BaseEntity
     {
-        private readonly SQLContext _context;
+        private readonly FleetManagerContext _context;
 
         private readonly DbSet<T> _entity;
 
         private readonly IErrorHandler _errorHandler;
 
-        public SQLRepository(SQLContext context, IErrorHandler errorHandler, DbSet<T> dbEntity)
+        public SQLRepository(FleetManagerContext context, IErrorHandler errorHandler)
         {
             _context = context;
-            _entity = dbEntity;
+            _entity = context.Set<T>();
             _errorHandler = errorHandler;
         }
         public async Task<List<T>> GetAll()
@@ -37,11 +37,6 @@ namespace Core.SQLRepository
         public async Task<IEnumerable<T>> Where(Expression<Func<T, bool>> exp)
         {
             return await _entity.Where(exp).ToListAsync();
-        }
-
-        public async Task<IEnumerable<T>> WhereOrdered(Expression<Func<T, bool>> exp, Expression<Func<T, object>> keyselector)
-        {
-            return await _entity.Where(exp).OrderByDescending(keyselector).ToListAsync();
         }
 
         public async void Insert(T entity)
@@ -78,6 +73,11 @@ namespace Core.SQLRepository
 
             _entity.Remove(entity);
             _context.SaveChanges();
+        }
+
+        public Task<IEnumerable<T>> WhereOrdered(Expression<Func<T, bool>> exp, Expression<Func<T, object>> keyselector, Expression<Func<T, object>> includedentity)
+        {
+            throw new NotImplementedException();
         }
     }
 }

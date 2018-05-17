@@ -30,10 +30,9 @@ namespace VehicleTracker.API.BL
             {
                 predicate = predicate.And(l => l.Status == vehiclestatus.Value);
             }
-
-
+            
             var vehicleStatus = await _repository
-                .WhereOrdered(predicate, item => item.CreatedDate);
+                .WhereOrdered(predicate, item => item.CreatedDate, includedentity => includedentity.Vehicle);
 
             List<StatusHistory> lsthistory = (from vs in vehicleStatus
                                              select new StatusHistory()

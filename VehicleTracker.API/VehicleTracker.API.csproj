@@ -11,8 +11,6 @@
 
   <ItemGroup>
     <PackageReference Include="Microsoft.AspNetCore.All" Version="2.0.6" />
-    <PackageReference Include="Microsoft.EntityFrameworkCore.SqlServer" Version="2.0.3" />
-    <PackageReference Include="Microsoft.EntityFrameworkCore.Tools" Version="2.0.3" />
     <PackageReference Include="Microsoft.VisualStudio.Web.CodeGeneration.Design" Version="2.0.4" />
   </ItemGroup>
 
@@ -22,7 +20,6 @@
 
   <ItemGroup>
     <ProjectReference Include="..\Core.Entites\Core.BaseEntities.csproj" />
-    <ProjectReference Include="..\Core.SQLRepository\Core.SQLRepository.csproj" />
     <ProjectReference Include="..\VehicleTracker.BusinessModel\VehicleTracker.BusinessModel.csproj" />
     <ProjectReference Include="..\VehicleTracker.Entites\VehicleTracker.DTO.csproj" />
     <ProjectReference Include="..\VehicleTracker.Repository\VehicleTracker.Repository.csproj" />

@@ -6,12 +6,11 @@ using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage;
 using Microsoft.EntityFrameworkCore.Storage.Internal;
 using System;
-using FleetManager.API.Repository;
 
-namespace FleetManager.API.Migrations
+namespace FleetManager.Repository.Migrations
 {
     [DbContext(typeof(FleetManagerContext))]
-    partial class VehicleContextModelSnapshot : ModelSnapshot
+    partial class FleetManagerContextModelSnapshot : ModelSnapshot
     {
         protected override void BuildModel(ModelBuilder modelBuilder)
         {

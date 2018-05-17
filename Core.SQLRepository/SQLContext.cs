@@ -6,9 +6,9 @@ using System.Threading.Tasks;
 
 namespace Core.SQLRepository
 {
-    public class BaseContext: DbContext
+    public class SQLContext : DbContext
     {
-        public BaseContext(DbContextOptions<BaseContext> options)
+        public SQLContext(DbContextOptions<SQLContext> options)
             : base(options)
         {
         }

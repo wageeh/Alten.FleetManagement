@@ -4,8 +4,7 @@ using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using FleetManager.DTO;
-using FleetManager.API.Repository;
-using Core.SQLRepository;
+using FleetManager.Repository;
 
 namespace FleetManager.API
 {
@@ -21,9 +20,8 @@ namespace FleetManager.API
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
-            // for using InMemory Database for speed development 
-            services.AddDbContext<FleetManagerContext>(opt => opt.UseSqlServer(SQLHelper.connection));
-            services.AddMvc().AddJsonOptions(options => options.SerializerSettings.ReferenceLoopHandling = Newtonsoft.Json.ReferenceLoopHandling.Ignore); 
+            services.AddMvc().AddJsonOptions(options => options.SerializerSettings.ReferenceLoopHandling = Newtonsoft.Json.ReferenceLoopHandling.Ignore);
+            Installer.ConfigureServices(services);
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.

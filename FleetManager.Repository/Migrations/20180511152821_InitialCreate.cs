@@ -2,7 +2,7 @@
 using System;
 using System.Collections.Generic;
 
-namespace FleetManager.API.Migrations
+namespace FleetManager.Repository.Migrations
 {
     public partial class InitialCreate : Migration
     {
