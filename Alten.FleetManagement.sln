@@ -33,15 +33,17 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Apps.SPA", "Apps.SPA\Apps.S
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "VehicleTracker.BusinessModel", "VehicleTracker.BusinessModel\VehicleTracker.BusinessModel.csproj", "{88396465-5DC2-46D4-89AE-E2045651187C}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "VehicleTracker.Repository", "VehicleTracker.Repository\VehicleTracker.Repository.csproj", "{A640023C-2C86-4AD3-8CF7-F651E1372F50}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "VehicleTracker.Repository", "VehicleTracker.Repository\VehicleTracker.Repository.csproj", "{A640023C-2C86-4AD3-8CF7-F651E1372F50}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Core.BaseRepository", "Core.IContext\Core.BaseRepository.csproj", "{022126B5-849E-42DC-B7AE-19EC1C26E147}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Core.BaseRepository", "Core.IContext\Core.BaseRepository.csproj", "{022126B5-849E-42DC-B7AE-19EC1C26E147}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Core.SQLRepository", "Core.SQLRepository\Core.SQLRepository.csproj", "{5E46D825-286A-43BC-8FD6-889EC44E615B}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Core.ErrorHandler", "Core.ErrorHandler\Core.ErrorHandler.csproj", "{109A10F4-2BC8-4978-A8FC-B588E27A82EC}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Core.ErrorHandler", "Core.ErrorHandler\Core.ErrorHandler.csproj", "{109A10F4-2BC8-4978-A8FC-B588E27A82EC}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FleetManager.Repository", "FleetManager.Repository\FleetManager.Repository.csproj", "{5A70D1BA-3215-4B64-9D06-2E853E12E2D2}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "FleetManager.Repository", "FleetManager.Repository\FleetManager.Repository.csproj", "{5A70D1BA-3215-4B64-9D06-2E853E12E2D2}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Test", "Test", "{CC5D3D90-7411-4B47-A63F-FC92AA6D09D1}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

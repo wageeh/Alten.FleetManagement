@@ -54,7 +54,7 @@ export class FetchDataComponent {
     public pingvehicles() {
         this._http.get(this.pingurl).subscribe(result => {
             alert("Pinged successfully");
-            getfleetlist();
+            this.getfleetlist();
         }, error => console.error(error));
     }
 
