@@ -15,6 +15,7 @@ export class FetchDataComponent {
     public _http: Http;
     public fleeturl: string = "http://localhost:56291/api/clients";
     public vehicleurl: string = "http://localhost:59024/api/tracker";
+    public pingurl: string = "http://localhost:59024/api/Ping";
     public selstatus: boolean | null;
     public selvehicles: string = "";
 
@@ -36,6 +37,13 @@ export class FetchDataComponent {
         this.selstatus = selval;
         this._http.get(this.vehicleurl + "/" + this.selvehicles + "/" + this.selstatus).subscribe(result => {
             this.checks = result.json() as FleetManagment[];
+            
+        }, error => console.error(error));
+    }
+
+    public pingvehicles() {
+        this._http.get(this.pingurl).subscribe(result => {
+            alert("Pinged successfully");
         }, error => console.error(error));
     }
 
@@ -51,8 +59,6 @@ export class FetchDataComponent {
            
         }
         
-        debugger;
-
         this._http.get(this.vehicleurl + "/" + this.selvehicles + "/" + this.selstatus).subscribe(result => {
             this.checks = result.json() as FleetManagment[];
         }, error => console.error(error));

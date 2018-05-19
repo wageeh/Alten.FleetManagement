@@ -5,7 +5,9 @@ using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using FleetManager.DTO;
-using FleetManager.Repository;
+using Core.BaseRepository;
+using Core.DbEntites.Helpers;
+using System.Linq.Expressions;
 
 namespace FleetManager.API.Controllers
 {
@@ -13,18 +15,19 @@ namespace FleetManager.API.Controllers
     [Route("api/Clients")]
     public class ClientsController : Controller
     {
-        private readonly FleetManagerContext _context;
+        private readonly IBaseRepository<Client> _clientrepository;
 
-        public ClientsController(FleetManagerContext context)
+        public ClientsController(IBaseRepository<Client> clientrepository)
         {
-            _context = context;
+            _clientrepository = clientrepository;
         }
 
         public async Task<IEnumerable<Client>> Get()
         {
-            var clients = await _context.Clients
-                .Include(u => u.Vehicles)
-                .ToListAsync();
+            var predicate = PredicateBuilder.True<Client>();
+            var clients = await _clientrepository.WhereOrdered(predicate
+                , oitem => oitem.CreatedDate, item => item.Vehicles);
+                
             return clients;           
         }
         [HttpGet("{id}")]
@@ -39,11 +42,8 @@ namespace FleetManager.API.Controllers
             {
                 throw new FormatException("Wrong customer id");
             }
-            var client = await _context.Clients
-                .Include(u => u.Vehicles)
-                .Where(c=> c.Id == id)
-                .FirstOrDefaultAsync();
-            return client;
+            var client = await _clientrepository.WhereOrdered(c=> c.Id == id, oitem => oitem.CreatedDate, item => item.Vehicles);
+            return client.FirstOrDefault();
         }
 
 

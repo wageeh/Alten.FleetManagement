@@ -2,7 +2,7 @@
 
 <p>This component demonstrates fetching data from the server.</p>
 
-<table width="80%">
+<table width="100%">
     <tr>
         <td>
             <label for="clients"> Clients: </label>
@@ -18,6 +18,9 @@
                 <option [value]="true">Online</option>
                 <option [value]="false">Offline</option>
             </select>
+        </td>
+        <td>
+            <input type="button" name="MimicPing" (click)="pingvehicles()">Mimic Ping</button>
         </td>
     </tr>
 </table>

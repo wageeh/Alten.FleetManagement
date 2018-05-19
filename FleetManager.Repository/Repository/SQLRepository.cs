@@ -75,9 +75,10 @@ namespace FleetManager.Repository
             _context.SaveChanges();
         }
 
-        public Task<IEnumerable<T>> WhereOrdered(Expression<Func<T, bool>> exp, Expression<Func<T, object>> keyselector, Expression<Func<T, object>> includedentity)
+        public async Task<IEnumerable<T>> WhereOrdered(Expression<Func<T, bool>> exp, Expression<Func<T, object>> keyselector,
+           Expression<Func<T, object>> includedentity)
         {
-            throw new NotImplementedException();
+            return await _entity.Where(exp).OrderByDescending(keyselector).Include(includedentity).ToListAsync();
         }
     }
 }
