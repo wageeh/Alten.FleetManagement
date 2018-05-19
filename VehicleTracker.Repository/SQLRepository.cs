@@ -35,12 +35,12 @@ namespace VehicleTracker.Repository
             return await _entity.SingleOrDefaultAsync(s => s.Id == id);
         }
 
-        public async Task<IEnumerable<T>> Where(Expression<Func<T, bool>> exp)
+        public async Task<List<T>> Where(Expression<Func<T, bool>> exp)
         {
             return await _entity.Where(exp).ToListAsync();
         }
 
-        public async Task<IEnumerable<T>> WhereOrdered(Expression<Func<T, bool>> exp, Expression<Func<T, object>> keyselector, 
+        public async Task<List<T>> WhereOrdered(Expression<Func<T, bool>> exp, Expression<Func<T, object>> keyselector, 
             Expression<Func<T, object>> includedentity)
         {
             return await _entity.Where(exp).OrderByDescending(keyselector).Include(includedentity).ToListAsync();

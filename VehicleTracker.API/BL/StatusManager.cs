@@ -12,14 +12,8 @@ namespace VehicleTracker.API.BL
 {
     public class StatusManager
     {
-        private readonly IBaseRepository<VehicleStatus> _repository;
 
-        public StatusManager(IBaseRepository<VehicleStatus> repository)
-        {
-            _repository = repository;
-        }
-
-        public async Task<IEnumerable<StatusHistory>> GetLatestStatusHistory(string vehiclelist, bool? vehiclestatus)
+        public async Task<IEnumerable<StatusHistory>> GetLatestStatusHistory(string vehiclelist, bool? vehiclestatus, IBaseRepository<VehicleStatus> _repository)
         {
             var predicate = PredicateBuilder.True<VehicleStatus>();
             if (vehiclelist!= null && !vehiclelist.Equals(""))
@@ -46,7 +40,7 @@ namespace VehicleTracker.API.BL
             return lsthistory;
         }
 
-        public void InsertRange(List<VehicleStatus>vehiclestatuslist)
+        public void InsertRange(List<VehicleStatus>vehiclestatuslist, IBaseRepository<VehicleStatus> _repository)
         {
             _repository.InsertRange(vehiclestatuslist);
         }

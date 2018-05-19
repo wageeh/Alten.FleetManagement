@@ -18,17 +18,17 @@ namespace VehicleTracker.API.Controllers
         public TrackerController(IBaseRepository<VehicleStatus> repository)
         {
             _repository = repository;
-            _manager = new StatusManager(_repository);
+            _manager = new StatusManager();
         }
         [HttpGet]
         public async Task<IEnumerable<StatusHistory>> Get()
         {
-            return await _manager.GetLatestStatusHistory("", null);
+            return await _manager.GetLatestStatusHistory("", null,_repository);
         }
         [HttpGet("{list}/{status}")]
         public async Task<IEnumerable<StatusHistory>> Get(string list="", bool? status=null)
         {
-            return await _manager.GetLatestStatusHistory(list, status);
+            return await _manager.GetLatestStatusHistory(list, status,_repository);
         }
 
 

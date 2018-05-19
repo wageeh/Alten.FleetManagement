@@ -17,9 +17,9 @@ namespace VehicleTracker.Repository
             // for init db context             
             services.AddDbContext<SQLContext>(opt => opt.UseSqlServer(SQLHelper.connection));
             
-            services.AddScoped<IBaseRepository<VehicleStatus>, SQLRepository<VehicleStatus>>();
-            services.AddScoped<IBaseRepository<Vehicle>, SQLRepository<Vehicle>>();
-            services.AddScoped<IErrorHandler, ErrorMessage>();
+            services.AddTransient<IBaseRepository<VehicleStatus>, SQLRepository<VehicleStatus>>();
+            services.AddTransient<IBaseRepository<Vehicle>, SQLRepository<Vehicle>>();
+            services.AddTransient<IErrorHandler, ErrorMessage>();
         }
     }
 }
