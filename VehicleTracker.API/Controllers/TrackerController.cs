@@ -26,7 +26,7 @@ namespace VehicleTracker.API.Controllers
             return await _manager.GetLatestStatusHistory("", null);
         }
         [HttpGet("{list}/{status}")]
-        public async Task<IEnumerable<StatusHistory>> Get(string list, bool? status)
+        public async Task<IEnumerable<StatusHistory>> Get(string list="", bool? status=null)
         {
             return await _manager.GetLatestStatusHistory(list, status);
         }

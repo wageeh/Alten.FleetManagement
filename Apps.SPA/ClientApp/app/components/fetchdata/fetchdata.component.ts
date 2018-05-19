@@ -17,7 +17,7 @@ export class FetchDataComponent {
     public vehicleurl: string = "http://localhost:59024/api/tracker";
     public pingurl: string = "http://localhost:59024/api/Ping";
     public selstatus: boolean | null;
-    public selvehicles: string = "";
+    public selvehicles: string = " ";
 
 
     constructor(http: Http) {
@@ -34,34 +34,41 @@ export class FetchDataComponent {
     }
 
     public filterbystatus(selval: any) {
-        this.selstatus = selval;
-        this._http.get(this.vehicleurl + "/" + this.selvehicles + "/" + this.selstatus).subscribe(result => {
+        if (selval == "null") {
+            this.selstatus = null;
+        } else {
+            this.selstatus = selval;
+        }
+        this.getfleetlist();
+
+    }
+
+    private getfleetlist() {
+        var vehicleurlbuilder: string = this.vehicleurl + "/" + this.selvehicles + "/" + this.selstatus; 
+
+        this._http.get(vehicleurlbuilder).subscribe(result => {
             this.checks = result.json() as FleetManagment[];
-            
         }, error => console.error(error));
     }
 
     public pingvehicles() {
         this._http.get(this.pingurl).subscribe(result => {
             alert("Pinged successfully");
+            getfleetlist();
         }, error => console.error(error));
     }
 
     public filterbyclient(selval: any) {
         //var clientId = client.Id;
         var curUser = this.clients.filter(value => value.name === selval)[0];
-        this.selvehicles = "";
+        this.selvehicles = " ";
         if (curUser) {
             for (var vehicle of curUser.vehicles) {
                 this.selvehicles += vehicle.registrationNumber;
                 this.selvehicles += ",";
-            }
-           
+            }           
         }
-        
-        this._http.get(this.vehicleurl + "/" + this.selvehicles + "/" + this.selstatus).subscribe(result => {
-            this.checks = result.json() as FleetManagment[];
-        }, error => console.error(error));
+        this.getfleetlist();
     }
 }
 
