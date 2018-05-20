@@ -1,5 +1,4 @@
 ﻿using System;
-using Microsoft.AspNetCore.Identity;
 
 namespace Core.ErrorHandler
 {
@@ -21,14 +20,6 @@ namespace Core.ErrorHandler
 
         }
 
-        public string ErrorIdentityResult(IdentityResult result)
-        {
-            foreach (var error in result.Errors)
-            {
-
-            }
-
-            return string.Empty;
-        }
+        
     }
 }

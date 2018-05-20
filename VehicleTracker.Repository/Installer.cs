@@ -3,6 +3,7 @@ using Core.Entites;
 using Core.ErrorHandler;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.DependencyInjection;
+using System;
 using System.Collections.Generic;
 using System.Text;
 using System.Threading.Tasks;
@@ -20,6 +21,11 @@ namespace VehicleTracker.Repository
             services.AddTransient<IBaseRepository<VehicleStatus>, SQLRepository<VehicleStatus>>();
             services.AddTransient<IBaseRepository<Vehicle>, SQLRepository<Vehicle>>();
             services.AddTransient<IErrorHandler, ErrorMessage>();
+        }
+
+        public static void Configure(IServiceScope serviceScope)
+        {
+            serviceScope.ServiceProvider.GetService<SQLContext>().Database.Migrate();
         }
     }
 }

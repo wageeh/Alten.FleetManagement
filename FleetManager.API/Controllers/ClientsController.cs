@@ -24,10 +24,11 @@ namespace FleetManager.API.Controllers
 
         public async Task<IEnumerable<Client>> Get()
         {
+
             var predicate = PredicateBuilder.True<Client>();
             var clients = await _clientrepository.WhereOrdered(predicate
                 , oitem => oitem.CreatedDate, item => item.Vehicles);
-                
+            
             return clients;           
         }
         [HttpGet("{id}")]

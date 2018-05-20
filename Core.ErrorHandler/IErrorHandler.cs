@@ -1,11 +1,10 @@
-﻿using Microsoft.AspNetCore.Identity;
+﻿
 
 namespace Core.ErrorHandler
 {
     public interface IErrorHandler
     {
         string GetMessage(ErrorMessagesEnum message);
-        string ErrorIdentityResult(IdentityResult result);
     }
 
 

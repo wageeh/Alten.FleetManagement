@@ -20,5 +20,12 @@ namespace FleetManager.Repository
             services.AddScoped<IBaseRepository<Vehicle>, SQLRepository<Vehicle>>();
             services.AddScoped<IErrorHandler, ErrorMessage>();
         }
+
+
+        public static void Configure(IServiceScope serviceScope)
+        {
+            serviceScope.ServiceProvider.GetService<FleetManagerContext>().Database.Migrate();
+            
+        }
     }
 }

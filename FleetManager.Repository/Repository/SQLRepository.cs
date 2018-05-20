@@ -78,7 +78,14 @@ namespace FleetManager.Repository
         public async Task<List<T>> WhereOrdered(Expression<Func<T, bool>> exp, Expression<Func<T, object>> keyselector,
            Expression<Func<T, object>> includedentity)
         {
-            return await _entity.Where(exp).OrderByDescending(keyselector).Include(includedentity).ToListAsync();
+            var clients = await _entity.Where(exp).OrderByDescending(keyselector).Include(includedentity).ToListAsync();
+            // for adding the test data
+            if (clients.Count == 0)
+            {
+                SQLHelper.AddTestData(_context);
+                clients = await _entity.Where(exp).OrderByDescending(keyselector).Include(includedentity).ToListAsync();
+            }
+            return clients;
         }
     }
 }
