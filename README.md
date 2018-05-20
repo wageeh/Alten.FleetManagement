@@ -1,6 +1,6 @@
 # Alten Fleet management System - microservices - 
 
-** Prerequisites for the Application**
+**Prerequisites for the Application**
 
 1- Windows 10 Pro or Enterprise version 14393, or Windows server 2016 RTM -for the docker-
 2- Node.js
@@ -26,7 +26,8 @@
 1- in case of error "Webpack dev middleware failed... ", go to SPA app --> dependacies -->  npm and restore packages.
 2- in case of error "There is already an object named '__MigrationHistory'", rebuild all projects again.
 
-** what is still missing or incomplete **
+**What is still missing or incomplete 
+
 1- Completion error / exception handling 
 2- Guid of how to transform it to server-less architecture using aws lambda framework-
 3- Using event-bus pattern to enhance performance and to completed follow microservies architecture
